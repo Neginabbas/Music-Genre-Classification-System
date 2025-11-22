@@ -17,6 +17,7 @@ venv/
 
 # Datasets / Large files
 genres_original/
+Test_Music/
 
 # Streamlit / logs
 *.log
