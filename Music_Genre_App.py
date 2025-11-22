@@ -98,6 +98,13 @@ background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, F
 
 
 /* -------------- HEADINGS COLOR ---------------- */
+            
+
+.st-emotion-cache-1w4gzkv {
+    word-break: break-word;
+    text-wrap: pretty;
+    color: #ff496d;
+}
 h2, h3, .stHeader {
     color: #ff496d; !important;
 }
