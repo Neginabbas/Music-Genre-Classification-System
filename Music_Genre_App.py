@@ -440,7 +440,7 @@ with col2:
     border-right-color: rgba(250, 250, 250, 0.3) !important;
     border-bottom-color: rgba(250, 250, 250, 0.3) !important;
 }
-            data-testid="stHorizontalBlock" {
+            [data-testid="stHorizontalBlock"] {
     flex-flow: column !important;
 }
             </style>
