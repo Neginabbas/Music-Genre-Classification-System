@@ -354,6 +354,7 @@ st.markdown("""
             }
             }
 }
+
 </style>
 
 <div class="custom-box">
