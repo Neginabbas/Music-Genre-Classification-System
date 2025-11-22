@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+env/
+venv/
+*.egg-info/
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+
+# TensorFlow / Keras
+*.ckpt
+
+# Datasets / Large files
+genres_original/
+
+# Streamlit / logs
+*.log
