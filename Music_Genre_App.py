@@ -307,6 +307,10 @@ div.stButton > button:hover {
     height: 1.25rem;
     flex-shrink: 0;
 }
+            
+[data-testid="stFileUploaderDropzone"] {
+    background: #fff !important;
+}
 
             /* Prediction Section Flexbox */
 #predict-wrapper {
