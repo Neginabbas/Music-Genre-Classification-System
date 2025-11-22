@@ -435,17 +435,10 @@ with col2:
             # Custom spinner color
             st.markdown("""
             <style>
-            .st-emotion-cache-gfp0l5 {
-    font-size: 14px;
-    width: 1.375rem;
-    height: 1.375rem;
-    border-width: 0.2rem;
-    padding: 0px;
-    margin: 0px;
-    border-color: #ff496d rgba(250, 250, 250, 0.2) rgba(250, 250, 250, 0.2);
-    -webkit-box-flex: 0;
-    flex-grow: 0;
-    flex-shrink: 0;
+            div[role="status"] div {
+    border-top-color: #ff496d !important;
+    border-right-color: rgba(250, 250, 250, 0.3) !important;
+    border-bottom-color: rgba(250, 250, 250, 0.3) !important;
 }
             </style>
             """, unsafe_allow_html=True)
