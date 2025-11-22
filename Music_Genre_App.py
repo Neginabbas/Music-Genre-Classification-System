@@ -415,8 +415,28 @@ The dataset is designed for:
 """, unsafe_allow_html=True)
 
 # ------------------ Prediction Section ------------------
+# ------------------ Prediction Section ------------------
+
+# Add your CSS BEFORE the layout
+st.markdown("""
+<style>
+/* Force columns to stack vertically */
+[data-testid="stHorizontalBlock"] {
+    flex-flow: column !important;
+}
+
+/* Spinner customization */
+div[role="status"] div {
+    border-top-color: #ff496d !important;
+    border-right-color: rgba(250, 250, 250, 0.3) !important;
+    border-bottom-color: rgba(250, 250, 250, 0.3) !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 st.markdown('<div id="predict-wrapper">', unsafe_allow_html=True)
 st.header("Genre Classification")
+
 test_mp3 = st.file_uploader("Upload an audio file", type=["mp3"])
 
 if test_mp3 is not None:
@@ -432,19 +452,6 @@ with col1:
 with col2:
     if st.button("Predict"):
         if test_mp3 is not None:
-            # Custom spinner color
-            st.markdown("""
-            <style>
-            div[role="status"] div {
-    border-top-color: #ff496d !important;
-    border-right-color: rgba(250, 250, 250, 0.3) !important;
-    border-bottom-color: rgba(250, 250, 250, 0.3) !important;
-}
-            [data-testid="stHorizontalBlock"] {
-    flex-flow: column !important;
-}
-            </style>
-            """, unsafe_allow_html=True)
 
             # Show spinner while computing
             with st.spinner("Please Wait.."):
@@ -452,13 +459,11 @@ with col2:
                 result_index = model_prediction(X_test)
                 st.balloons()
 
-                # Save prediction to session_state
                 st.session_state['genre'] = result_index
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-
-# ---------------- Prediction Display Card (outside button) ----------------
+# ---------------- Prediction Display Card ----------------
 if 'genre' in st.session_state:
     label = ['blues','classical','country','disco','hiphop','jazz','metal','pop','reggae','rock']
     genre = label[st.session_state['genre']]
@@ -481,6 +486,7 @@ if 'genre' in st.session_state:
         It's a <span style='color:#ff496d;'>{genre}</span> music!
     </div>
     """, unsafe_allow_html=True)
+
 
 
 
