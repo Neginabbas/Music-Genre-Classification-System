@@ -357,24 +357,57 @@ st.markdown("""
 </style>
 
 <div class="custom-box">
-<h3>About Project</h3>
-<p>
-Music. Experts have been trying for a long time to understand sound and what differenciates one song from another. How to visualize sound. What makes a tone different from another.
-</p>
-
-<p>This data hopefully can give the opportunity to do just that.</p>
-
-<h3>About Dataset</h3>
 <h4>Content</h4>
 
 <ul>
-<li><b>genres original</b> - A collection of 10 genres with 100 audio files each, all having a length of 30 seconds (the famous GTZAN dataset, the MNIST of sounds)</li>
 
-<li><b>List of Genres</b> - blues, classical, country, disco, hiphop, jazz, metal, pop, reggae, rock</li>
+<li>
+<b>genres original</b> –  
+A collection of 1,000 audio clips (100 per genre), each 30 seconds long.  
+This is the well-known <b>GTZAN</b> dataset—often called the “MNIST of audio”—and is widely used in music genre classification research.
+</li>
 
-<li><b>images original</b> - A visual representation for each audio file. One way to classify data is through neural networks. Because NNs (like CNN, what we will be using today) usually take in some sort of image representation, the audio files were converted to Mel Spectrograms to make this possible.</li>
+<br>
 
-<li><b>2 CSV files</b> - Containing features of the audio files. One file has for each song (30 seconds long) a mean and variance computed over multiple features that can be extracted from an audio file. The other file has the same structure, but the songs were split before into 3 seconds audio files (this way increasing 10 times the amount of data we fuel into our classification models). With data, more is always better.</li>
+<li>
+<b>List of Genres</b> –  
+blues, classical, country, disco, hiphop, jazz, metal, pop, reggae, rock.  
+These represent a balanced set of music styles, making the dataset suitable for supervised classification.
+</li>
+
+<br>
+
+<li>
+<b>images original</b> –  
+Each audio file has a corresponding <b>Mel Spectrogram</b> image.  
+Spectrograms convert audio signals into a visual form, allowing image-based ML models such as CNNs to learn patterns related to pitch, rhythm, and timbre.
+</li>
+
+<br>
+
+<li>
+<b>2 CSV files (Feature Datasets)</b> –  
+These contain extracted audio features used for training ML models:
+    <ul>
+        <li><b>features_30_sec.csv</b>: Mean and variance of multiple audio features (chroma, MFCCs, spectral centroid, zero-crossing rate, etc.) computed over the full 30-sec clip.</li>
+        <li><b>features_3_sec.csv</b>: Same features but computed on 3-second segments, increasing dataset size by ×10 and improving model robustness.</li>
+    </ul>
+    These structured features are useful for classical ML models such as SVM, Random Forests, and fully-connected neural networks.
+</li>
+
+<br>
+
+<li>
+<b>Purpose of the Dataset</b> –  
+The dataset is designed for:
+<ul>
+    <li>Music genre classification</li>
+    <li>Spectrogram-based deep learning</li>
+    <li>Audio feature engineering</li>
+    <li>Exploring sound patterns like timbre, harmony, and frequency distribution</li>
+</ul>
+</li>
+
 </ul>
 
 </div>
