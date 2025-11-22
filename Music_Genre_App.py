@@ -42,6 +42,7 @@ st.set_page_config(page_title="Music Genre Classifier", layout="wide")
 # Hide Streamlit default menu and footer
 st.markdown("""
     <style>
+    header {visibility: hidden;}
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     .stApp {background-color: -webkit-linear-gradient(to right, #4b134f, #c94b4b); color: white;}
