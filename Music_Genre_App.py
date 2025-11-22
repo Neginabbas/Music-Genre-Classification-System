@@ -307,10 +307,6 @@ div.stButton > button:hover {
     height: 1.25rem;
     flex-shrink: 0;
 }
-            
-[data-testid="stFileUploaderDropzone"] {
-    background: #fff !important;
-}
 
             /* Prediction Section Flexbox */
 #predict-wrapper {
@@ -443,6 +439,9 @@ with col2:
     border-top-color: #ff496d !important;
     border-right-color: rgba(250, 250, 250, 0.3) !important;
     border-bottom-color: rgba(250, 250, 250, 0.3) !important;
+}
+                        [data-testid="stFileUploaderDropzone"] {
+    background: #fff !important;
 }
             </style>
             """, unsafe_allow_html=True)
