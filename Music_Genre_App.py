@@ -462,7 +462,7 @@ with col2:
         if test_mp3 is not None:
 
             # Show spinner while computing
-            with st.spinner("Please Wait.."):
+            with st.spinner("Wroking on your song..."):
                 X_test = load_and_preprocess_data(test_mp3)
                 result_index = model_prediction(X_test)
                 st.balloons()
