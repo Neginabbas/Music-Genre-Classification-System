@@ -3,6 +3,8 @@ import tensorflow as tf
 import numpy as np
 import librosa
 from tensorflow.image import resize
+import soundfile as sf
+import io
 
 # ------------------ Functions ------------------
 @st.cache_resource()
@@ -10,9 +12,15 @@ def load_model():
     model = tf.keras.models.load_model("./Trained_model.h5")
     return model
 
-def load_and_preprocess_data(file_path, target_shape=(150, 150)):
+def load_and_preprocess_data(file_source, target_shape=(150, 150)):
     data = []
-    audio_data, sample_rate = librosa.load(file_path, sr=None)
+
+    # If it's a file object from Streamlit:
+    if hasattr(file_source, "read"):
+        file_bytes = file_source.read()
+        audio_data, sample_rate = sf.read(io.BytesIO(file_bytes))
+    else:
+        audio_data, sample_rate = librosa.load(file_source, sr=None)
     chunk_duration = 4
     overlap_duration = 2
     chunk_samples = chunk_duration * sample_rate
@@ -440,7 +448,7 @@ st.header("Genre Classification")
 test_mp3 = st.file_uploader("Upload an audio file", type=["mp3"])
 
 if test_mp3 is not None:
-    filepath = 'Test_Music/' + test_mp3.name
+    filepath = test_mp3  
 
 col1, col2 = st.columns([1, 1])
 
@@ -455,7 +463,7 @@ with col2:
 
             # Show spinner while computing
             with st.spinner("Please Wait.."):
-                X_test = load_and_preprocess_data(filepath)
+                X_test = load_and_preprocess_data(test_mp3)
                 result_index = model_prediction(X_test)
                 st.balloons()
 

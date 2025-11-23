@@ -16,7 +16,7 @@ venv/
 *.ckpt
 
 # Datasets / Large files
-genres_original/
+Data/
 Test_Music/
 
 # Streamlit / logs
